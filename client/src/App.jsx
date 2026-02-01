@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     // Hacemos la petición al backend
-    fetch("https://carworks.dev/api/status")
+    fetch("https://api.carworks.dev/api/status")
       .then((res) => res.json())
       .then((data) => setBackendData(data))
       .catch((err) => console.error("Error connecting to backend:", err));

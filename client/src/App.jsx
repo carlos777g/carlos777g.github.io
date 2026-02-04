@@ -27,7 +27,7 @@ function App() {
         {backendData ? (
           <div className="mb-6 p-2 border border-emerald-500/30 bg-emerald-500/10 rounded-lg inline-block">
             <p className="text-emerald-400 text-sm">
-               {backendData.connected_backend_message} — My LinkeIn profile: <a href={backendData.profile_url}>{backendData.my_name}</a>
+               {backendData.connected_backend_message} — My LinkeIn profile: <a href={backendData.profile_url} className="underline">{backendData.my_name}</a>
             </p>
           </div>
         ) : (

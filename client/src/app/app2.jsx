@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import viewsDesing from "/allViewsFigmaDesing.png";
 import mobileView from "/mobileViewDesing.png";
+import "./index.css";
 
 function App() {
   const [backendData, setBackendData] = useState(null);

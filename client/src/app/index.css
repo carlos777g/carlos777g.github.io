@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --bg-body: #10141C;
+  
+  --color-accent: var(--accent-color, #B4A629); /*yellow*/
+  --color-accent-soft: var(--accent-color-soft, rgba(250, 204, 21, 0.1));
+
+}
+
+@layer base {
+  body {
+    @apply bg-body text-slate-200 transition-colors duration-500;
+    font-family: 'Inter', sans-serif;
+  }
+}

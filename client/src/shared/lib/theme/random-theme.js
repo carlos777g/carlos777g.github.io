@@ -1,7 +1,7 @@
 const PALETTES = [
-  { name: 'yellow-vibe', main: '#FACC15', soft: 'rgba(250, 204, 21, 0.1)' },
-  { name: 'red-vibe', main: '#B4292B', soft: 'rgba(239, 68, 68, 0.1)' },
-  { name: 'pink-vibe', main: '#B4299B', soft: 'rgba(239, 68, 68, 0.1)'}
+  { name: 'yellow-vibe', main: '#FACC15'},
+  { name: 'red-vibe', main: '#B4292B'},
+  { name: 'pink-vibe', main: '#B4299B'}
 ];
 
 export const applyRandomTheme = () => {

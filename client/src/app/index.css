@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-body: #10141C;
-  
-  --color-accent: var(--accent-color, #B4A629); /*yellow*/
-  /* --color-accent-soft: var(--accent-color-soft, rgba(250, 204, 21, 0.1)); */
+  --color-body: #10141c;
 
+  /* Dynamic Accent (Changes via JS) */
+  --color-accent: var(--accent-color, #b4a629);
+  /* Font families */
+  --font-itim: "Itim", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  /* Static Colors */
+  --color-glass-white: #ffffff;
+  --color-muted-white: #a0aec0; /* figma: A6A6A6*/
+  --color-dark-gray: #2d3748; /* giant letters figma: #23272D */
 }
 
 @layer base {
   body {
     @apply bg-body text-slate-200 transition-colors duration-500;
-    font-family: 'Inter', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 }

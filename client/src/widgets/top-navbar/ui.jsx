@@ -8,7 +8,7 @@ export const TopNavbar = () => {
     <nav className={`fixed top-0 left-0 w-full h-16 z-50 transition-transform duration-300 flex items-center justify-between px-6 backdrop-blur-md bg-body/70 border-b border-accent/10 
       ${scrollDir === "down" ? "-translate-y-full" : "translate-y-0"}`}>
       
-      <div className="text-xl font-bold tracking-tighter">
+      <div className="text-2xl  tracking-tighter font-itim">
         <span className="text-slate-50">carworks</span>
         <span className="text-accent">.dev</span>
       </div>

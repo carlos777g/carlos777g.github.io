@@ -8,7 +8,6 @@ export const HomePage = () => {
       <TopNavbar />
       <main className="px-4">
         <Hero />
-        <h2 className="text-accent font-mono">// SYSTEM_READY</h2>
       </main>
       <BottomNavbar />
     </div>

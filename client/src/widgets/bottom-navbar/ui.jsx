@@ -23,7 +23,7 @@ const NavIcon = ({ src, label }) => (
     <Icon
       src={src}
       alt={label}
-      className="brightness-0 invert" // Forces SVG to pure white if they were black
+      className="brightness-0 invert" 
     />
   </button>
 );

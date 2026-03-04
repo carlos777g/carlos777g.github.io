@@ -9,8 +9,7 @@ export const TopNavbar = () => {
       ${scrollDir === "down" ? "-translate-y-full" : "translate-y-0"}`}>
       
       <div className="text-2xl  tracking-tighter font-itim">
-        <span className="text-slate-50">carworks</span>
-        <span className="text-accent">.dev</span>
+        carworks<span className="text-accent">.dev</span>
       </div>
 
       <ThemeButton />

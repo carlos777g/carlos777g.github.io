@@ -13,6 +13,30 @@
   --color-glass-white: #ffffff;
   --color-muted-white: #a0aec0; /* figma: A6A6A6*/
   --color-dark-gray: #23272D; /* giant letters */
+
+
+  /* animations */
+  --animate-breathe: breathe 4s ease-in-out infinite;
+  --animate-point: point 6s ease-in-out infinite;
+  --animate-shake: shake 5s ease-in infinite;
+
+  /* Keyframes */
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @keyframes point {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(8px) rotate(5deg); }
+  }
+
+  @keyframes shake {
+    0%, 12% { transform: rotate(0deg); }
+    3% { transform: rotate(-4deg); }
+    6% { transform: rotate(4deg); }
+    9% { transform: rotate(-4deg); }
+  }
 }
 
 @layer base {

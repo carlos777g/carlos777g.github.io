@@ -6,7 +6,7 @@ export const HomePage = () => {
     <div className="relative min-h-[200vh] pt-20 pb-20">
       {/* Dummy height for scroll test */}
       <TopNavbar />
-      <main className="px-4">
+      <main>
         <Hero />
       </main>
       <BottomNavbar />

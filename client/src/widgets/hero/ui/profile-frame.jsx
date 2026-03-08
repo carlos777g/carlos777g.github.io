@@ -9,7 +9,7 @@ export const ProfileFrame = ({ image }) => (
         width={747}
         height={1024}
         loading="eager"
-        fetchpriority="high"
+        fetchPriority="high"
         alt="Carlos Guillen Profile"
         className="absolute inset-0 w-full h-full object-cover p-1"
       />

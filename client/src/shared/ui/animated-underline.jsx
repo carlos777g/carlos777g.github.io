@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-
 /**
  * AnimatedUnderline Component
  * A reusable architectural detail. Triggers a dual-line expansion when visible.
+ * AnimatedUnderline Component
+ * @param {string} width -(ej. 'w-12', 'w-[50px]', 'w-full')
  */
-export const AnimatedUnderline = () => {
+export const AnimatedUnderline = ({ width = "w-full" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef(null);
 
@@ -16,7 +17,7 @@ export const AnimatedUnderline = () => {
           observer.unobserve(domRef.current);
         }
       },
-      { threshold: 0.1 } // Lower threshold so it triggers easily when attached to bottom of elements
+      { threshold: 0.1 },
     );
 
     if (domRef.current) observer.observe(domRef.current);
@@ -24,16 +25,16 @@ export const AnimatedUnderline = () => {
   }, [isVisible]);
 
   return (
-    <div ref={domRef} className="flex flex-col gap-0.5 mt-2 w-full">
-      <span 
-        className={`h-0.5 bg-accent block origin-left rotate-[0.8deg] ${
-          isVisible ? "animate-expand" : "scale-x-0"
-        }`} 
+    <div ref={domRef} className={`flex flex-col gap-0.5 mt-1 ${width} mx-auto`}>
+      <span
+        className={`h-0.5 bg-accent block origin-left rotate-[0.8deg] transition-transform duration-700 ${
+          isVisible ? "scale-x-100" : "scale-x-0"
+        }`}
       />
-      <span 
-        className={`h-px bg-accent block origin-right delay-200 -rotate-1 ${
-          isVisible ? "animate-expand" : "scale-x-0"
-        }`} 
+      <span
+        className={`h-px bg-accent block origin-right delay-200 -rotate-1 transition-transform duration-700 ${
+          isVisible ? "scale-x-100" : "scale-x-0"
+        }`}
       />
     </div>
   );

@@ -1,0 +1,1 @@
+export { TechAndContact } from "./ui";

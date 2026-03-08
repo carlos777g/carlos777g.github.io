@@ -107,6 +107,6 @@
 
 @layer base {
   body {
-    @apply bg-body text-glass-white transition-colors duration-500 font-poppins;
+    @apply bg-body text-glass-white transition-colors duration-500 font-poppins box-border;
   }
 }

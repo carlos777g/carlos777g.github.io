@@ -4,6 +4,7 @@ import { Hero } from "@/widgets/hero";
 import { ScrollPhrases } from "@/widgets/scroll-phrases";
 import { WhoAmI } from "@/widgets/who-am-i";
 import { Projects } from "@/widgets/projects";
+import { TechAndContact } from "@/widgets/tech-and-contact";
 
 export const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ export const HomePage = () => {
         <ScrollPhrases />
         <WhoAmI />
         <Projects />
+        <TechAndContact />
       </main>
       <BottomNavbar />
     </div>

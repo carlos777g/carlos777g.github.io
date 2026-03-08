@@ -1,0 +1,13 @@
+@theme {
+  --color-body: #10141c;
+  --color-accent: var(--accent-color, #b4a629);
+  
+  /* Font families */
+  --font-itim: "Itim", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  
+  /* Static Colors */
+  --color-glass-white: #ffffff;
+  --color-muted-white: #a0aec0; 
+  --color-dark-gray: #23272d;
+}

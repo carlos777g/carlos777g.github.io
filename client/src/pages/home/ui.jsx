@@ -5,6 +5,7 @@ import { ScrollPhrases } from "@/widgets/scroll-phrases";
 import { WhoAmI } from "@/widgets/who-am-i";
 import { Projects } from "@/widgets/projects";
 import { TechAndContact } from "@/widgets/tech-and-contact";
+import { Footer } from "@/widgets/footer";
 
 export const HomePage = () => {
   return (
@@ -14,9 +15,14 @@ export const HomePage = () => {
       <main>
         <Hero />
         <ScrollPhrases />
-        <WhoAmI />
-        <Projects />
+        <section id="who-am-i">
+          <WhoAmI />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
         <TechAndContact />
+        <Footer />
       </main>
       <BottomNavbar />
     </div>

@@ -7,7 +7,7 @@ import { HeaderH2 } from "@/shared/ui/header-h2";
 
 export const Projects = () => {
   return (
-    <section className="w-full py-24 px-3 bg-body">
+    <section className="w-full py-10 px-3 bg-body">
       <div className="max-w-6xl mx-auto">
         {/* Header Layout: Flexbox to align Title and the Link */}
         <HeaderH2

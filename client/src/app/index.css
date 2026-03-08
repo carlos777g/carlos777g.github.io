@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@300;400;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -12,36 +12,101 @@
   /* Static Colors */
   --color-glass-white: #ffffff;
   --color-muted-white: #a0aec0; /* figma: A6A6A6*/
-  --color-dark-gray: #23272D; /* giant letters */
-
+  --color-dark-gray: #23272d; /* giant letters */
 
   /* animations */
   --animate-breathe: breathe 4s ease-in-out infinite;
   --animate-point: point 6s ease-in-out infinite;
   --animate-shake: shake 5s ease-in infinite;
+  --animate-reveal-up: reveal-up ease-out forwards;
+  --animate-reveal-left: reveal-left ease-out forwards;
+  --animate-expand: expand 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  --animate-point-right: point-right 4s ease-in-out infinite;
+  --animate-scroll-y: scroll-y 20s linear infinite;
 
   /* Keyframes */
   @keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 
   @keyframes point {
-    0%, 100% { transform: translateX(0) rotate(0deg); }
-    50% { transform: translateX(8px) rotate(5deg); }
+    0%,
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(8px) rotate(5deg);
+    }
   }
 
   @keyframes shake {
-    0%, 12% { transform: rotate(0deg); }
-    3% { transform: rotate(-4deg); }
-    6% { transform: rotate(4deg); }
-    9% { transform: rotate(-4deg); }
+    0%,
+    12% {
+      transform: rotate(0deg);
+    }
+    3% {
+      transform: rotate(-4deg);
+    }
+    6% {
+      transform: rotate(4deg);
+    }
+    9% {
+      transform: rotate(-4deg);
+    }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes reveal-left {
+    /* Starts shifted to the left (negative X) and moves to origin */
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes expand {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes point-right {
+    /* 0% y 100% en el origen, 50% movido a la derecha para un bucle perfecto */
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+  }
+
+  @keyframes scroll-y {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
   }
 }
 
 @layer base {
   body {
     @apply bg-body text-glass-white transition-colors duration-500 font-poppins;
-    
   }
 }

@@ -6,10 +6,10 @@ import { HeroDescription } from "./ui/hero-description";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section className="relative w-full min-h-[75vh] overflow-hidden">
       <BackgroundText />
 
-      <div className="mt-25 relative w-48 h-37 ml-38">
+      <div className="mt-25 relative w-48 aspect-48/37 ml-38">
         <ProfileFrame image={profileImg} />
         <HeroInfo />
       </div>

@@ -20,10 +20,14 @@ export const HeroIdentity = ({ image }) => {
           {/* ml-4 indents the last name slightly for typographic tension */}
           <span className="ml-5 md:ml-8 ">Guillén</span>
         </h1>
-
-        <button className="ml-5 mt-9 cursor-pointer bg-accent text-body px-2 py-2 rounded-md text-sm sm:text-base sm:px-4 sm:mt-7  md:text-lg md:mt-10 md:ml-10 md:px-7 md:py-3 lg:text-md lg:py-2 lg:px-3 lg:ml-9 lg:translate-y-11 font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-accent/20 animate-shake">
-          Contact me
-        </button>
+        <a
+          href="mailto:gcarlosjael@gmail.com?subject=Project%20Inquiry&body=Hello%20Carlos,"
+          className="contents" 
+        >
+          <button className="ml-5 mt-9 cursor-pointer bg-accent text-body px-2 py-2 rounded-md text-sm sm:text-base sm:px-4 sm:mt-7  md:text-lg md:mt-10 md:ml-10 md:px-7 md:py-3 lg:text-md lg:py-2 lg:px-3 lg:ml-9 lg:translate-y-11 font-bold whitespace-nowrap hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-accent/20 animate-shake">
+            Contact me
+          </button>
+        </a>
       </div>
 
       {/* 2. CENTER: The Overlapping Arrow */}

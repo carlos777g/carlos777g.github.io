@@ -29,7 +29,7 @@ export const ContactSection = () => {
         </ScrollReveal>
         <ScrollReveal direction="left" duration="500">
           <a
-            href="mailto:tu-correo@gmail.com"
+            href="mailto:gcarlosjael@gmail.com"
             aria-label="Start a new project"
             className="group relative p-3"
           >

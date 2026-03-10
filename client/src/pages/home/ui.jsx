@@ -10,7 +10,6 @@ import { Footer } from "@/widgets/footer";
 export const HomePage = () => {
   return (
     <div className="relative min-h-[200vh] pt-20 pb-20">
-      {/* Dummy height for scroll test */}
       <TopNavbar />
       <main>
         <Hero />

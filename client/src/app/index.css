@@ -1,16 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@300;400;600;700;800;900&display=swap");
 @import "tailwindcss";
 
-@theme {
-  --color-body: #10141C;
-  
-  --color-accent: var(--accent-color, #B4A629); /*yellow*/
-  --color-accent-soft: var(--accent-color-soft, rgba(250, 204, 21, 0.1));
-
-}
-
+@import "./styles/theme.css";
+@import "./styles/animations.css";
 @layer base {
   body {
-    @apply bg-body text-slate-200 transition-colors duration-500;
-    font-family: 'Inter', sans-serif;
+    @apply bg-body text-glass-white transition-colors duration-500 font-poppins box-border;
+  }
+
+  section[id] {
+    scroll-margin-top: 2rem; 
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
   }
 }

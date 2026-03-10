@@ -1,16 +1,29 @@
+import { TopNavbar } from "@/widgets/top-navbar";
+import { BottomNavbar } from "@/widgets/bottom-navbar";
+import { Hero } from "@/widgets/hero";
+import { ScrollPhrases } from "@/widgets/scroll-phrases";
+import { WhoAmI } from "@/widgets/who-am-i";
+import { Projects } from "@/widgets/projects";
+import { TechAndContact } from "@/widgets/tech-and-contact";
+import { Footer } from "@/widgets/footer";
+
 export const HomePage = () => {
   return (
-    <main className="h-screen flex flex-col items-center justify-center space-y-4">
-      <h1 className="text-5xl font-bold text-accent">Consola de Comandos</h1>
-      <p className="border border-accent/30 bg-accent-soft px-4 py-2 rounded text-accent">
-        [ Sistema Inicializado ]
-      </p>
-      <button 
-        onClick={() => window.location.reload()}
-        className="mt-8 px-6 py-2 border-2 border-accent text-accent hover:bg-accent hover:text-slate-950 transition-all font-mono"
-      >
-        RECARGAR PARA CAMBIAR PALETA
-      </button>
-    </main>
+    <div className="relative min-h-[200vh] pt-20 pb-20">
+      <TopNavbar />
+      <main>
+        <Hero />
+        <ScrollPhrases />
+        <section id="who-am-i">
+          <WhoAmI />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <TechAndContact />
+        <Footer />
+      </main>
+      <BottomNavbar />
+    </div>
   );
 };

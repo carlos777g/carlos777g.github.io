@@ -1,33 +1,43 @@
-import { useState, useEffect } from "react";
+import { useTerminalLoop } from "./terminal/use-terminal-loop";
+import { TerminalPrompt } from "./terminal/terminal-prompt";
 
+/**
+ * HeroTerminal Component
+ * Orchestrates the UI for the simulated terminal animation.
+ */
 export const HeroTerminal = () => {
-  const [text, setText] = useState("");
-  const fullText = "sudo systemctl start telematics_engine.service\n> Initializing network protocols...\n> Connecting to full-stack environment...\n> Ready.";
-
-  // Efecto de máquina de escribir
-  useEffect(() => {
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      setText(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(typingInterval);
-    }, 50); // Velocidad de escritura
-    return () => clearInterval(typingInterval);
-  }, []);
+  const { commandLine, outputs, clearLine, phase } = useTerminalLoop();
 
   return (
-    <div className="hidden lg:flex flex-col w-full max-w-lg mt-10 bg-[#1a1b26] rounded-lg border border-glass-white/10 overflow-hidden shadow-2xl">
-      {/* Barra de título de la ventana */}
-      <div className="flex items-center px-4 py-2 bg-[#16161e] border-b border-glass-white/5 gap-2">
-        <div className="w-3 h-3 rounded-full bg-red-500/80" />
-        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-        <div className="w-3 h-3 rounded-full bg-green-500/80" />
-        <span className="ml-2 text-[10px] text-glass-white/40 font-mono">carlos@carworks:~</span>
-      </div>
-      {/* Cuerpo de la terminal */}
-      <div className="p-4 font-mono text-xs md:text-sm text-accent min-h-[120px] whitespace-pre-wrap">
-        <span className="text-glass-white/70">$</span> {text}
-        <span className="animate-pulse">_</span>
+    <div className="hidden lg:flex flex-col w-full max-w-lg mt-10 bg-black rounded-lg border-accent border-3 overflow-hidden shadow-2xl">
+      
+      {/* Terminal Body */}
+      <div className="p-4 font-mono text-xs md:text-sm min-h-65 xl:min-h-70 whitespace-pre-wrap">
+        
+        {/* Step 1: Main Command Line */}
+        <div>
+          <TerminalPrompt />
+          <span>{commandLine}</span>
+          {/* Cursor blinks only when actively typing the main command */}
+          {phase === "TYPING_CMD" && <span className="animate-pulse">_</span>}
+        </div>
+
+        {/* Step 2: System Outputs */}
+        {outputs.map((line, index) => (
+          <div key={`out-${index}`} className="mt-1 text-glass-white/80">
+            {line}
+          </div>
+        ))}
+
+        {/* Step 3: Clear Command Line (Appears at the bottom after output) */}
+        {phase === "TYPING_CLEAR" && (
+          <div className="mt-1">
+            <TerminalPrompt />
+            <span>{clearLine}</span>
+            <span className="animate-pulse">_</span>
+          </div>
+        )}
+
       </div>
     </div>
   );

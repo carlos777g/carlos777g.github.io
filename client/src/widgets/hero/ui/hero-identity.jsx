@@ -10,7 +10,7 @@ export const HeroIdentity = ({ image }) => {
   return (
     <div className="flex items-center justify-around w-full relative md:translate-y-10 lg:translate-y-14">
       {/* 1. LEFT SIDE: Typography & CTA */}
-      <div className="flex flex-col items-start -translate-y-4 z-20 lg:-translate-y-12 shrink-0">
+      <div className="flex flex-col items-start -translate-y-4 z-20 lg:-translate-y-12 xl:translate-x-10 shrink-0">
         <span className="text-accent font-black text-sm sm:text-lg md:text-xl tracking-widest">
           I am
         </span>
@@ -28,10 +28,10 @@ export const HeroIdentity = ({ image }) => {
 
       {/* 2. CENTER: The Overlapping Arrow */}
       {/* Absolute positioning is mathematically justified here to bridge the flex gap */}
-      <CurvedArrowIcon className="absolute left-1/2 top-1 -translate-x-15 w-16 sm:w-25 sm:-translate-x-20 md:w-35 md:-translate-x-32 md:-top-5 lg:w-20 lg:-translate-x-15 lg:-top-12 text-glass-white animate-point pointer-events-none z-30" />
+      <CurvedArrowIcon className="absolute left-1/2 top-1 -translate-x-15 w-16 sm:w-25 sm:-translate-x-20 md:w-35 md:-translate-x-32 md:-top-5 lg:w-20 lg:-translate-x-15 lg:-top-12 xl:translate-y-5  text-glass-white animate-point pointer-events-none z-30" />
 
       {/* 3. RIGHT SIDE: Profile Frame & Floating Text */}
-      <div className="relative shrink-0 lg:-translate-y-10 lg:translate-x-5">
+      <div className="relative shrink-0 lg:-translate-y-10 lg:translate-x-5 xl:translate-x-4">
         {/* Floating Greeting */}
         <div className="absolute -top-20 -right-7 sm:-right-10 md:-top-24 md:-right-13 lg:-top-25 lg:-right-2 w-max rotate-12 z-30 pointer-events-none">
           <span className="text-accent font-black text-2xl sm:text-3xl md:text-4xl lg:text-3xl animate-breathe inline-block drop-shadow-md">
@@ -40,7 +40,7 @@ export const HeroIdentity = ({ image }) => {
         </div>
 
         {/* The Frame scales naturally across breakpoints */}
-        <div className="-translate-y-8 relative w-48 sm:w-67 md:w-80 lg:w-60 aspect-48/37 z-20">
+        <div className="-translate-y-8 relative w-48 sm:w-67 md:w-80 lg:w-60 xl:w-74 aspect-48/37 z-20">
           <ProfileFrame image={image} />
         </div>
       </div>

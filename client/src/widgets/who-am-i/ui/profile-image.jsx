@@ -3,7 +3,7 @@
  * Prevents layout shift by reserving space with aspect-ratio.
  */
 export const ProfileImage = ({ src }) => (
-  <div className="relative w-64 mx-auto mb-7 rounded-2xl overflow-hidden">
+  <div className="relative w-64 lg:w-74 mx-auto mb-7 rounded-2xl overflow-hidden">
     <img
       src={src}
       alt="Carlos Guillén"

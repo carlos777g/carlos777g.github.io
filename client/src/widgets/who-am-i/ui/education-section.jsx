@@ -5,14 +5,14 @@ import { ScrollReveal } from "@/shared/ui/scroll-reveal";
  * Reusable layout for degree titles.
  */
 export const EducationSection = ({ title, school, items }) => (
-  <div className=" text-left max-w-2xl mx-auto">
+  <div className="text-left max-w-2xl ">
     <ScrollReveal direction="left" duration="500">
-      <h3 className="text-accent font-bold text-xl tracking-tighter">
+      <h3 className="text-accent font-bold text-lg tracking-tighter">
         {title}
       </h3>
     </ScrollReveal>
     <ScrollReveal direction="left" duration="500">
-      <h4 className="mb-4 font-bold">{school}</h4>
+      <h4 className="mb-4 text-sm font-bold">{school}</h4>
     </ScrollReveal>
     <ul className="space-y-1 ">
       {items.map((item, index) => (

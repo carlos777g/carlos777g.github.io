@@ -73,7 +73,7 @@ export const Footer = () => {
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="group mt-8 md:mt-0 md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 flex items-center gap-2 text-muted-white transition-colors duration-300 hover:text-accent"
+          className="group cursor-pointer mt-8 lg:absolute lg:right-30 xl:right-50 lg:top-1/2 lg:-translate-y-1/2 flex items-center gap-2 text-muted-white transition-colors duration-200 hover:text-accent"
         >
           <span className="text-xs font-bold uppercase tracking-widest hidden sm:block">
             Top

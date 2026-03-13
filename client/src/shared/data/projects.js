@@ -13,7 +13,7 @@ export const PROJECTS_DATA = [
     image: cellularImg,
     githubUrl:
       "https://github.com/carlos777g/simulacion-de-sistema-celular.git",
-    liveUrl: "https://carworks.dev",
+    // liveUrl: "https://carworks.dev",
     stars: 1,
     stack: ["Python"],
   },

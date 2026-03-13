@@ -8,8 +8,8 @@ export const TechAndContact = () => {
   return (
     <section className="w-full pt-5 px-6 bg-body">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-0">
-          <div id="tech-stack" className="flex flex-col md:pr-12 md:border-r md:border-accent/30">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div id="tech-stack" className="order-1 lg:order-2 flex flex-col lg:pl-12 lg:border-l lg:border-accent/30">
             <ScrollReveal>
               <div className="mb-3">
                 <HeaderH2 text="My tech stack" />
@@ -24,7 +24,7 @@ export const TechAndContact = () => {
             </ScrollReveal>
           </div>
 
-          <div id="contact" className="flex flex-col md:pl-12 h-full justify-center">
+          <div id="contact" className="order-2 lg:order-1 flex flex-col h-full justify-center sm:px-20 md:px-30 lg:px-0 lg:justify-start ">
             <ContactSection />
           </div>
         </div>

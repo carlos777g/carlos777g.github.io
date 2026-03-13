@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/shared/ui/scroll-reveal";
 
 export const ContactSection = () => {
   return (
-    <div className="flex flex-col h-full w-full justify-center items-center text-center">
+    <div className="flex flex-col h-full w-full justify-center items-center lg:justify-start text-center">
       <ScrollReveal>
         <HeaderH2
           text="Get in touch"
@@ -16,7 +16,7 @@ export const ContactSection = () => {
         />
       </ScrollReveal>
       <ScrollReveal>
-        <p className="text-sm leading-relaxed max-w-sm mb-8 text-muted-white">
+        <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8">
           I'm currently open to new opportunities. If you have a project in mind
           or just want to say hi, my inbox is always open. Let's create
           something great.

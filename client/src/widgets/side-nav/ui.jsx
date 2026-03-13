@@ -1,5 +1,5 @@
 import { LeftSideNav } from "./ui/left-side-nav";
-// import { RightSideNav } from "./ui/right-side-nav"; 
+import { RightSideNav } from "./ui/right-side-nav"; 
 
 /**
  * SideNav Widget (Orchestrator)
@@ -10,7 +10,7 @@ export const SideNavWidget = () => {
   return (
     <>
       <LeftSideNav />
-      {/* <RightSideNav /> */}
+      <RightSideNav />
     </>
   );
 };

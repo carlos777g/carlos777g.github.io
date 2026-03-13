@@ -52,7 +52,7 @@ export const FastScrollNav = () => {
   return (
     <nav
       onWheel={handleWheel}
-      className={`flex flex-col gap-4 relative p-3 rounded-full transition-colors duration-1000 ${
+      className={` backdrop-blur-lg flex flex-col gap-4 relative p-3 rounded-full transition-colors duration-1000 ${
         isBlinking ? "bg-glass-white/10 animate-pulse" : "bg-transparent"
       }`}
     >

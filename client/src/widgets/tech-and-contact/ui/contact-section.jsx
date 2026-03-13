@@ -33,7 +33,7 @@ export const ContactSection = () => {
             aria-label="Start a new project"
             className="group relative p-3"
           >
-            <NewFileIcon className="w-12 h-12 opacity-70 animate-shake text-accent" />
+            <NewFileIcon className="w-12 h-12 opacity-70 animate-shake text-accent transition-transform duration-200 hover:scale-120" />
           </a>
         </ScrollReveal>
       </div>

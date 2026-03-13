@@ -1,12 +1,12 @@
 import { AppRouter } from "./providers/router";
 import { applyRandomTheme } from "@/shared/lib/theme/random-theme";
+import { useDynamicFavicon } from "@/shared/lib/hooks/use-dynamic-favicon";
+
 import "./index.css";
 
-applyRandomTheme();
+const INITIAL_THEME_HEX = applyRandomTheme();
 const App = () => {
-  // useEffect(() => {
-  //   applyRandomTheme();
-  // }, []); 
+  useDynamicFavicon(INITIAL_THEME_HEX);
   return <AppRouter />;
 };
 

@@ -10,7 +10,7 @@ import { HeroTerminal } from "./ui/hero-terminal";
  */
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-[65vh] lg:min-h-screen lg:pt-0 overflow-hidden flex items-center lg:py-8">
+    <section className="relative w-full min-h-[73vh] sm:min-h-[85vh] lg:min-h-screen lg:pt-0 overflow-hidden flex items-center lg:py-8">
       <BackgroundText />
 
       {/* Main Grid Layout */}

@@ -53,9 +53,9 @@ export const VerticalCarousel = ({ title, items }) => {
       {/* Absolute lo saca del flujo de las pistas, bottom-0 y left-0 lo pegan a la base, w-full centra el texto */}
      <div className="absolute bottom-0 left-0 w-full bg-body z-20 pt-4 pb-2 text-center">
       <AnimatedUnderline width="w-20"/>
-        <h4 className="relative inline-block text-accent font-bold uppercase tracking-widest text-[10px] pt-2">
+        <h3 className="relative inline-block text-accent font-bold uppercase tracking-widest text-[10px] pt-2">
           {title}
-        </h4>
+        </h3>
       </div>
     </div>
   );

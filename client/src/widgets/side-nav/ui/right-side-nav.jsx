@@ -13,19 +13,19 @@ export const RightSideNav = () => {
   const SOCIAL_LINKS = [
     {
       id: "github",
-      href: "https://github.com/tu-usuario",
+      href: "https://github.com/carlos777g",
       Icon: GithubIcon,
       label: "GitHub Profile",
     },
     {
       id: "linkedin",
-      href: "https://linkedin.com/in/tu-usuario",
+      href: "https://www.linkedin.com/in/carlos-jael-guill%C3%A9n-gonz%C3%A1lez/",
       Icon: LinkedinIcon,
       label: "LinkedIn Profile",
     },
     {
       id: "instagram",
-      href: "https://instagram.com/tu-usuario",
+      href: "https://www.instagram.com/soy_carlsjr/",
       Icon: InstagramIcon,
       label: "Instagram Profile",
     },

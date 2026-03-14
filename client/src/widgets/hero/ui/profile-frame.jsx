@@ -10,7 +10,7 @@ export const ProfileFrame = ({ image }) => (
         height={1024}
         loading="eager"
         fetchPriority="high"
-        alt="Carlos Guillen Profile"
+        alt="Illustrated avatar of Carlos Guillén, Full-stack Developer & Telematics Engineer"
         className="absolute inset-0 w-full h-full object-cover p-1"
       />
     </div>

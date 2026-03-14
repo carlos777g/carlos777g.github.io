@@ -11,7 +11,7 @@ import { ScrollReveal } from "@/shared/ui/scroll-reveal";
  */
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-[73vh] sm:min-h-[85vh] lg:min-h-screen lg:pt-0 overflow-hidden flex items-center lg:py-8">
+    <section className="relative w-full min-h-[73vh] sm:min-h-[85vh] md:min-h-[90vh] lg:min-h-screen lg:pt-0 overflow-hidden flex items-center lg:py-8">
       <BackgroundText />
 
       {/* Main Grid Layout */}
@@ -25,7 +25,7 @@ export const Hero = () => {
 
         {/* RIGHT COLUMN (or BOTTOM on mobile): Description + Terminal */}
         <ScrollReveal>
-          <div className="flex flex-col justify-center items-start max-w-110 sm:max-w-full md:max-w-3xl  mx-auto lg:mx-0 lg:translate-y-0">
+          <div className="flex flex-col justify-center items-start max-w-110 sm:max-w-full md:max-w-3xl  mx-auto lg:mx-0 lg:translate-y-0 xl:translate-y-5">
             <HeroDescription />
             <HeroTerminal />
           </div>

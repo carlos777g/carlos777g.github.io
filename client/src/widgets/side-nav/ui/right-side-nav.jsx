@@ -38,7 +38,7 @@ export const RightSideNav = () => {
   ];
 
   return (
-    <aside className="fixed right-8 bottom-1 hidden backdrop-blur-lg rounded-full p-2 xl:flex flex-col items-center z-50">
+    <aside className="fixed right-3 bottom-1 hidden backdrop-blur-lg rounded-full p-2 xl:flex flex-col items-center z-50">
       {/* Interactive Social Links */}
       <div className="flex flex-col items-center gap-4 mb-5">
         {SOCIAL_LINKS.map(({ id, href, Icon, label }) => {

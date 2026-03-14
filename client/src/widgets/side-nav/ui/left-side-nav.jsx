@@ -7,7 +7,7 @@ import { ScrollIndicator } from "./scroll-indicator";
  */
 export const LeftSideNav = () => {
   return (
-    <aside className="fixed left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-8 z-50">
+    <aside className="fixed left-3 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-8 z-50">
       <FastScrollNav />
       <ScrollIndicator />
     </aside>

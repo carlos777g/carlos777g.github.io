@@ -1,5 +1,5 @@
-import { Icon } from "@/shared/ui/icon";
 import { AnimatedUnderline } from "@/shared/ui";
+import React from "react";
 
 export const VerticalCarousel = ({ title, items }) => {
   const animationDuration = items.length * 4;
@@ -18,7 +18,7 @@ export const VerticalCarousel = ({ title, items }) => {
               key={`track1-${index}`}
               className="flex flex-col items-center gap-2"
             >
-              <Icon
+              <img
                 src={item.src}
                 alt={item.alt}
                 className="w-10 h-10 transition-transform duration-300 hover:scale-110"
@@ -37,7 +37,7 @@ export const VerticalCarousel = ({ title, items }) => {
               key={`track2-${index}`}
               className="flex flex-col items-center gap-2"
             >
-              <Icon
+              <img
                 src={item.src}
                 alt={item.alt}
                 className="w-10 h-10 transition-transform duration-300 hover:scale-110"

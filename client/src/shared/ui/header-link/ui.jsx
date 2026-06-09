@@ -1,4 +1,4 @@
-import { Icon } from "@/shared/ui/Icon";
+import { Icon } from "@/shared/ui";
 
 export const HeaderLink = ({ href, icon1Name, icon2Name }) => {
   return (

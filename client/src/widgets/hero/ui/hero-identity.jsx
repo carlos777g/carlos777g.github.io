@@ -1,4 +1,4 @@
-import { Icon } from "@/shared/ui/icon";
+import { Icon } from "@/shared/ui";
 import { ProfileFrame } from "./profile-frame";
 import { CurvedArrowIcon } from "@/shared/ui/icons/curved-arrow-icon";
 

@@ -1,5 +1,5 @@
 import { Icon } from "@/shared/ui/icon";
-import { AnimatedUnderline } from "./animated-underline";
+import { AnimatedUnderline } from "@/shared/ui";
 
 export const VerticalCarousel = ({ title, items }) => {
   const animationDuration = items.length * 4;

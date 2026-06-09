@@ -23,7 +23,9 @@ export const HomePage = () => {
         <section id="projects">
           <Projects />
         </section>
-        <BlogPreview />
+        <section id="blogs">
+          <BlogPreview />
+        </section>
         <TechAndContact />
         <Footer />
       </main>

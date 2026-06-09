@@ -48,7 +48,7 @@ export const BlogPreview = () => {
     <section className="w-full py-10 px-3 bg-body">
       <div className="max-w-6xl mx-auto">
         <HeaderH2
-          text="From the blog"
+          text="Technical articles"
           actionSlot={
             <Link
               to="/blog"

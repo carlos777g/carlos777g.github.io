@@ -1,8 +1,8 @@
 import { PROJECTS_DATA } from "@/shared/data/projects";
 import { ScrollReveal } from "@/shared/ui/scroll-reveal";
-import { HeaderLink } from "./ui/header-link";
+import { HeaderLink } from "@/shared/ui";
 import { ProjectCard } from "./ui/project-card";
-import { HeaderH2 } from "@/shared/ui/header-h2";
+import { HeaderH2 } from "@/shared/ui";
 // import { githubIcon } from "@/shared/assets/github.svg"; // El componente con el hover del GitHub y la flecha
 
 export const Projects = () => {

@@ -7,6 +7,7 @@ import { Projects } from "@/widgets/projects";
 import { TechAndContact } from "@/widgets/tech-and-contact";
 import { Footer } from "@/widgets/footer";
 import { SideNavWidget } from "@/widgets/side-nav";
+import { BlogPreview } from "@/widgets/blog-preview";
 
 export const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ export const HomePage = () => {
         <section id="projects">
           <Projects />
         </section>
+        <BlogPreview />
         <TechAndContact />
         <Footer />
       </main>

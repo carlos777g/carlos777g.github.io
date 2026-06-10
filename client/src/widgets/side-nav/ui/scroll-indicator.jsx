@@ -1,5 +1,6 @@
+// src/widgets/side-nav/ui/scroll-indicator.jsx
 import { useState, useEffect } from "react";
-import { MouseIcon } from "@/shared/ui/icons/mouse";
+import { Icon } from "@/shared/ui";
 
 /**
  * ScrollIndicator Component
@@ -20,7 +21,7 @@ export const ScrollIndicator = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     
     const fallbackTimer = setTimeout(() => {
-      setIsVisible(false);
+      setIsVisible(false); // <-- Fix: Correctly call the state updater function
       window.removeEventListener("scroll", handleScroll);
     }, 3000);
 
@@ -38,7 +39,7 @@ export const ScrollIndicator = () => {
           : "opacity-0 max-h-0 mt-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <MouseIcon className="w-6 h-6  animate-bounce" />
+      <Icon name="mouse" className="w-6 h-6 animate-bounce" />
       <span 
         className="text-[10px] uppercase tracking-[0.3em]" 
         style={{ writingMode: "vertical-rl" }}

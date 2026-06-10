@@ -1,6 +1,6 @@
 import { TECH_DATA } from "@/shared/data/tech-stack";
 import { HeaderH2 } from "@/shared/ui/header-h2";
-import { VerticalCarousel } from "@/shared/ui/VerticalCarousel";
+import { VerticalCarousel } from "@/shared/ui";
 import { ContactSection } from "./ui/contact-section";
 import { ScrollReveal } from "@/shared/ui/scroll-reveal";
 

@@ -22,25 +22,27 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # O la versión que estés usando en Debian
+          version: 9
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm' # Cache de pnpm para que los deploys sean flash
-          cache-dependency-path: ./client/pnpm-lock.yaml # Indica dónde está el lockfile
+          cache: 'pnpm'
+          cache-dependency-path: ./client/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build
+        # Inyección de la variable de entorno desde los Secrets de GitHub
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: pnpm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Importante: el build de Vite se genera en client/dist
           path: "./client/dist"
 
   deploy:

@@ -1,5 +1,5 @@
 import { PhraseItem } from "./ui/phrase-item";
-import { RandomIconBackground } from "@/shared/ui/random-icon-background";
+import { RandomIconBackground } from "@/shared/ui";
 
 const WORK_PHRASES = [
   "Clean Code Advocate",

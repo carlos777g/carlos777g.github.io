@@ -1,19 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-/**
- * ScrollReveal Wrapper
- * Encapsulates IntersectionObserver logic to trigger a reveal animation once.
- * Uses a configuration dictionary for highly scalable animation variants.
- */
-
-// Dictionary Pattern: Maps the 'direction' prop to exact Tailwind classes
 const ANIMATION_VARIANTS = {
   up: {
     hidden: "opacity-0 translate-y-10",
     visible: "opacity-100 translate-y-0 animate-reveal-up",
   },
   left: {
-    hidden: "opacity-0 -translate-x-10", // -translate-x-10 pushes it left
+    hidden: "opacity-0 -translate-x-10",
     visible: "opacity-100 translate-x-0 animate-reveal-left",
   },
 };
@@ -23,15 +16,15 @@ export const ScrollReveal = ({
   className = "", 
   threshold = 0.1, 
   rootMargin = "-50px 0px",
-  duration = 700,         // Default duration in milliseconds
-  direction = "up"        // Default direction ('up' | 'left')
+  duration = 700,
+  direction = "up",
+  fullWidth = true,
 }) => {
   const [hasRevealed, setHasRevealed] = useState(false);
   const domRef = useRef(null);
 
   useEffect(() => {
     const currentRef = domRef.current;
-    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasRevealed) {
@@ -41,17 +34,12 @@ export const ScrollReveal = ({
       },
       { threshold, rootMargin }
     );
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
+    if (currentRef) observer.observe(currentRef);
     return () => {
       if (currentRef) observer.unobserve(currentRef);
     };
   }, [hasRevealed, threshold, rootMargin]);
 
-  // Default to 'up' if an invalid direction is passed
   const selectedVariant = ANIMATION_VARIANTS[direction] || ANIMATION_VARIANTS.up;
 
   return (
@@ -61,7 +49,7 @@ export const ScrollReveal = ({
         transitionDuration: `${duration}ms`,
         animationDuration: `${duration}ms`,
       }}
-      className={`transition-all w-full ${
+      className={`transition-all ${fullWidth ? "w-full" : "w-fit"} ${
         hasRevealed ? selectedVariant.visible : selectedVariant.hidden
       } ${className}`}
     >

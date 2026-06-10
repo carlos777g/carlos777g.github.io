@@ -4,3 +4,4 @@ export { HeaderLink } from "./header-link";
 export { ScrollReveal } from "./scroll-reveal";
 export { VerticalCarousel } from "./vertical-carousel";
 export { Icon } from "./icons";
+export { RandomIconBackground } from "./randomizer-bg-icons";

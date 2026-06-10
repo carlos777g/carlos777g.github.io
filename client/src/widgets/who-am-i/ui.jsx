@@ -1,14 +1,16 @@
+// src/widgets/who-am-i/ui.jsx
+import React from "react";
 import profileFull from "@/shared/assets/informal.jpg";
 import { ProfileImage } from "./ui/profile-image";
 import { EducationSection } from "./ui/education-section";
-import { ScrollReveal } from "@/shared/ui/scroll-reveal";
-import { HeaderH2 } from "@/shared/ui/header-h2";
-import { PixelArtSparklesIcon } from "@/shared/ui/icons/pixel-art-sparkles.jsx";
-import { PixelArtHexagonIcon } from "@/shared/ui/icons/pixel-art-hexagon.jsx";
-import { LinesWallIcon } from "@/shared/ui/icons/lines-wall-icon.jsx";
-import { DevIcon } from "@/shared/ui/icons/dev.jsx";
-import { FileIcon } from "@/shared/ui/icons/file.jsx";
-import { RandomIconBackground } from "@/shared/ui/random-icon-background";
+
+// Absolute centralization of the Shared UI layer via its Public API
+import { 
+  ScrollReveal, 
+  HeaderH2, 
+  Icon, 
+  RandomIconBackground 
+} from "@/shared/ui";
 
 export const WhoAmI = () => {
   const telematicsPoints = [
@@ -31,29 +33,31 @@ export const WhoAmI = () => {
       id="who-am-i"
       className="relative w-full py-16 bg-body px-6 mt-10 overflow-hidden"
     >
-      <RandomIconBackground count={3}/>
+      <RandomIconBackground count={3} />
+      
+      {/* Background Decorative Vectors using the Unified Icon Component */}
       <div className="hidden lg:block opacity-30 absolute top-30 left-0 z-0 text-accent">
-        <LinesWallIcon className="w-25 fill-accent" />
+        <Icon name="lines-wall" className="w-25 h-auto text-accent" />
       </div>
 
       <div className="hidden lg:block opacity-30 absolute bottom-0 right-0 z-0 text-accent">
-        <LinesWallIcon className="w-25 fill-accent" />
+        <Icon name="lines-wall" className="w-25 h-auto text-accent" />
       </div>
 
       <div className="hidden lg:block opacity-70 absolute top-55 right-15 z-0 text-accent">
-        <DevIcon className="w-15 fill-accent" />
+        <Icon name="dev" className="w-15 h-15 text-accent" />
       </div>
 
       <div className="hidden lg:block opacity-70 absolute bottom-20 right-35 z-0 text-accent">
-        <FileIcon className="w-15 rotate-34 fill-accent" />
+        <Icon name="file" className="w-15 h-15 rotate-34 text-accent" />
       </div>
 
       <div className="hidden lg:block absolute bottom-20 left-12 xl:left-24 z-0 opacity-10 text-glass-white animate-point">
-        <PixelArtHexagonIcon className="w-24 h-24" />
+        <Icon name="pixel-art-hexagon" className="w-24 h-24" />
       </div>
 
       <div className="hidden lg:block absolute bottom-32 right-16 xl:right-32 z-0 opacity-20 text-accent animate-breathe">
-        <PixelArtSparklesIcon className="w-12 h-12" />
+        <Icon name="pixel-art-sparkles" className="w-12 h-12" />
       </div>
       
       <div className="max-w-7xl mx-auto relative z-20">
@@ -63,7 +67,7 @@ export const WhoAmI = () => {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 ">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12">
           {/* Left column */}
           <div className="flex justify-center items-center lg:justify-end lg:sticky lg:top-24 w-full">
             <ScrollReveal direction="left" duration="500">
@@ -83,17 +87,18 @@ export const WhoAmI = () => {
             </ScrollReveal>
 
             <div className="grid grid-cols-1 gap-4 w-full">
+              {/* Rigor: Pass the icon identifier as a string matching the ICON_REGISTRY keys */}
               <EducationSection
                 title="BS in Telematics Engineering"
                 school="UPIITA - IPN | 2022-present"
                 items={telematicsPoints}
-                Icon={PixelArtSparklesIcon}
+                iconName="pixel-art-sparkles"
               />
               <EducationSection
                 title="Technical Degree"
                 school="CECyT 11 - IPN | 2019-2022"
                 items={technicalPoints}
-                Icon={PixelArtHexagonIcon}
+                iconName="pixel-art-hexagon"
               />
             </div>
           </div>

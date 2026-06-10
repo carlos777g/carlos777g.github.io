@@ -1,6 +1,7 @@
+// src/widgets/hero/ui/hero-identity.jsx
+import React from "react";
 import { Icon } from "@/shared/ui";
 import { ProfileFrame } from "./profile-frame";
-import { CurvedArrowIcon } from "@/shared/ui/icons/curved-arrow-icon";
 
 /**
  * HeroIdentity Component
@@ -18,7 +19,7 @@ export const HeroIdentity = ({ image }) => {
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-black flex flex-col leading-[1.2]">
           <span>Carlos</span>
           {/* ml-4 indents the last name slightly for typographic tension */}
-          <span className="ml-5 md:ml-8 ">Guillén</span>
+          <span className="ml-5 md:ml-8">Guillén</span>
         </h1>
         <a
           href="mailto:gcarlosjael@gmail.com?subject=Project%20Inquiry&body=Hello%20Carlos,"
@@ -29,8 +30,11 @@ export const HeroIdentity = ({ image }) => {
       </div>
 
       {/* 2. CENTER: The Overlapping Arrow */}
-      {/* Absolute positioning is mathematically justified here to bridge the flex gap */}
-      <CurvedArrowIcon className="absolute left-1/2 top-1 -translate-x-13 w-14 sm:w-25 sm:-translate-x-20 md:w-35 md:-translate-x-32 md:-top-5 lg:w-20 lg:-translate-x-15 lg:-top-12 xl:translate-y-5  text-glass-white animate-point pointer-events-none z-30" />
+      {/* Replaced explicit CurvedArrowIcon with the unified Icon component */}
+      <Icon 
+        name="curved-arrow" 
+        className="absolute left-1/2 top-1 -translate-x-13 w-14 sm:w-25 sm:-translate-x-20 md:w-35 md:-translate-x-32 md:-top-5 lg:w-20 lg:-translate-x-15 lg:-top-12 xl:translate-y-5 text-glass-white animate-point pointer-events-none z-30" 
+      />
 
       {/* 3. RIGHT SIDE: Profile Frame & Floating Text */}
       <div className="relative shrink-0 lg:-translate-y-10 lg:translate-x-5 xl:translate-x-4">

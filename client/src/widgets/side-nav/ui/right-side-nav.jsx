@@ -1,8 +1,6 @@
-import { InstagramIcon } from "@/shared/ui/icons/instagram";
-import { LinkedinIcon } from "@/shared/ui/icons/linkedin";
-import { GithubIcon } from "@/shared/ui/icons/github";
-import { GmailIcon } from "@/shared/ui/icons/gmail";
-import { PoleIcon } from "@/shared/ui/icons/pole";
+// src/widgets/right-side-nav/ui.jsx
+import React from "react";
+import { Icon } from "@/shared/ui";
 
 /**
  * RightSideNav Widget
@@ -10,29 +8,30 @@ import { PoleIcon } from "@/shared/ui/icons/pole";
  * Anchored to the bottom of the viewport.
  */
 export const RightSideNav = () => {
+  // Data structure mapped with unified registry keys instead of component references
   const SOCIAL_LINKS = [
     {
       id: "github",
       href: "https://github.com/carlos777g",
-      Icon: GithubIcon,
+      iconName: "github",
       label: "GitHub Profile",
     },
     {
       id: "linkedin",
       href: "https://www.linkedin.com/in/carlos-jael-guill%C3%A9n-gonz%C3%A1lez/",
-      Icon: LinkedinIcon,
+      iconName: "linkedin",
       label: "LinkedIn Profile",
     },
     {
       id: "instagram",
       href: "https://www.instagram.com/soy_carlsjr/",
-      Icon: InstagramIcon,
+      iconName: "instagram",
       label: "Instagram Profile",
     },
     {
       id: "mail",
       href: "mailto:gcarlosjael@gmail.com",
-      Icon: GmailIcon,
+      iconName: "gmail",
       label: "Send Email",
     },
   ];
@@ -41,8 +40,7 @@ export const RightSideNav = () => {
     <aside className="fixed right-3 bottom-1 hidden backdrop-blur-lg rounded-full p-2 xl:flex flex-col items-center z-50">
       {/* Interactive Social Links */}
       <div className="flex flex-col items-center gap-4 mb-5">
-        {SOCIAL_LINKS.map(({ id, href, Icon, label }) => {
-          // Determine if the link is external to apply secure attributes
+        {SOCIAL_LINKS.map(({ id, href, iconName, label }) => {
           const isExternal = href.startsWith("http");
 
           return (
@@ -54,14 +52,15 @@ export const RightSideNav = () => {
               rel={isExternal ? "noopener noreferrer" : undefined}
               className="hover:text-accent hover:-translate-y-1 transition-all duration-200"
             >
-              <Icon className="w-7" />
+              <Icon name={iconName} className="w-7 h-7" />
             </a>
           );
         })}
       </div>
 
+      {/* Decorative Structural Base Anchor */}
       <div className="text-glass-white/30 pointer-events-none">
-        <PoleIcon className="w-12 h-13 text-glass-white" />
+        <Icon name="pole" className="w-12 h-13 text-glass-white" />
       </div>
     </aside>
   );

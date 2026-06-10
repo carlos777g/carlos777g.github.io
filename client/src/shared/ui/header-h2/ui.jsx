@@ -1,3 +1,4 @@
+// /src/shared/ui/header-h2/ui.jsx
 import { AnimatedUnderline } from "@/shared/ui";
 
 export const HeaderH2 = ({ text, actionSlot, leftSlot, align = "left" }) => {

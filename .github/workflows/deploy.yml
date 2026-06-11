@@ -32,7 +32,7 @@ jobs:
           cache-dependency-path: ./client/pnpm-lock.yaml
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile --prefer-frozen-lockfile=false
 
       - name: Build
         # Inyección de la variable de entorno desde los Secrets de GitHub

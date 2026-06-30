@@ -1,10 +1,11 @@
 // /src/widgets/projects/ui.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getProjects } from "@/entities/project";
 import { ScrollReveal } from "@/shared/ui/scroll-reveal";
 import { HeaderLink, HeaderH2 } from "@/shared/ui";
 import { ProjectCard } from "./ui/project-card";
+import { useMediaQuery } from "@/shared/lib/hooks/use-media-query";
 
 const getRandomProjects = (projects, count) => {
   const shuffled = [...projects].sort(() => Math.random() - 0.5);
@@ -12,15 +13,22 @@ const getRandomProjects = (projects, count) => {
 };
 
 export const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [allProjects, setAllProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     getProjects()
-      .then((data) => setProjects(getRandomProjects(data, 3)))
+      .then(setAllProjects)
       .catch((err) => console.error("Error fetching projects:", err))
       .finally(() => setLoading(false));
   }, []);
+
+  const visibleCount = isDesktop ? 4 : 2;
+  const projects = useMemo(
+  () => getRandomProjects(allProjects, visibleCount),
+  [allProjects, visibleCount]
+);
 
   if (loading) {
     return (
@@ -74,17 +82,8 @@ export const Projects = () => {
               <span className="text-sm md:text-base font-bold tracking-wider text-muted-white group-hover:text-accent transition-colors duration-300">
                 See more projects
               </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 15 15"
-                className="text-muted-white group-hover:text-accent transition-all duration-300 group-hover:translate-x-1"
-              >
-                <path
-                  fill="currentColor"
-                  d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 15 15" className="text-muted-white group-hover:text-accent transition-all duration-300 group-hover:translate-x-1">
+                <path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414" />
               </svg>
             </Link>
           </ScrollReveal>

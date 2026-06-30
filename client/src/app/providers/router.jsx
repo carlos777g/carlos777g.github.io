@@ -3,12 +3,14 @@ import { HomePage } from "@/pages/home";
 import { BlogPage } from "@/pages/blog";
 import { PostPage } from "@/pages/post";
 import { NotFoundPage } from "@/pages/not-found";
+import { ProjectsPage } from "@/pages/projects";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<PostPage />} />
 

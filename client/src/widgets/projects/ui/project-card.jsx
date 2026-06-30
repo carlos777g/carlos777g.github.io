@@ -47,24 +47,24 @@ export const ProjectCard = ({ project }) => {
 
           {/* Meta Icons */}
           <div className="flex items-center gap-2 text-glass-white/60 shrink-0">
-            {/* 1. Star Icon */}
-            {project.stars > 0 && (
-              <span className="flex items-end gap-1 text-sm font-mono cursor-default">
-                {project.stars}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="transition-all duration-300 hover:text-accent hover:rotate-12 hover:scale-110"
-                >
-                  <path
-                    fill="currentColor"
-                    d="m8.85 16.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425zm-1.525 2.098l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102zM12 12.25"
-                  />
-                </svg>
-              </span>
-            )}
+            {/* 1. Star Icon - disabled until GitHub API integration is implemented */}
+            {/* {project.stars > 0 && ( */}
+            {/*   <span className="flex items-end gap-1 text-sm font-mono cursor-default"> */}
+            {/*     {project.stars} */}
+            {/*     <svg */}
+            {/*       xmlns="http://www.w3.org/2000/svg" */}
+            {/*       width="24" */}
+            {/*       height="24" */}
+            {/*       viewBox="0 0 24 24" */}
+            {/*       className="transition-all duration-300 hover:text-accent hover:rotate-12 hover:scale-110" */}
+            {/*     > */}
+            {/*       <path */}
+            {/*         fill="currentColor" */}
+            {/*         d="m8.85 16.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425zm-1.525 2.098l1.24-5.313l-4.123-3.572l5.431-.47L12 4.557l2.127 5.01l5.43.47l-4.123 3.572l1.241 5.313L12 16.102zM12 12.25" */}
+            {/*       /> */}
+            {/*     </svg> */}
+            {/*   </span> */}
+            {/* )} */}
 
             {/* 2. GitHub Icon */}
             <a

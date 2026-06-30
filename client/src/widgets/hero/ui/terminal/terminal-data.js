@@ -17,15 +17,15 @@ export const TERMINAL_SEQUENCES = [
     command: "cat about-me.txt",
     output: [
       "-------------------------------------",
-      "USER: Carlos Guillen",
-      "ROLE: Telematics Engineer & Full-Stack",
+      "USER: Carlos Guillén",
+      "ROLE: Telematics Engineer, Full-Stack & SysAdmin",
       "STATUS: Building reliable, scalable systems.",
       "MISSION: Transform complex problems into elegant code.",
       "-------------------------------------"
     ],
   },
   {
-    command: "npm run deploy --production",
+    command: "pnpm run build",
     output: [
       "> carworks-portfolio@1.0.0 deploy",
       "> Compiling assets...",

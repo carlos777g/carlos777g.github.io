@@ -9,7 +9,6 @@ import mermaid from "mermaid"; // Fixed: Utilizing official core module directly
 import { getPostBySlug } from "@/entities/post";
 import { TopNavbar } from "@/widgets/top-navbar";
 import { Footer } from "@/widgets/footer";
-import { ScrollReveal } from "@/shared/ui";
 
 // Initialize the core library outside the rendering cycle
 mermaid.initialize({
@@ -286,7 +285,6 @@ export const PostPage = () => {
         )}
 
         <div className="max-w-3xl mx-auto px-6 pt-10">
-          <ScrollReveal direction="up" duration={400}>
             <Link
               to="/blog"
               className="inline-flex items-center gap-2 text-xs font-mono text-muted-white/50 hover:text-accent transition-colors mb-8"
@@ -353,7 +351,6 @@ export const PostPage = () => {
                 {post.content}
               </ReactMarkdown>
             </div>
-          </ScrollReveal>
         </div>
       </main>
 

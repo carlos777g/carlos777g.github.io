@@ -1,79 +1,99 @@
-# 🌐 carworks.dev — Portafolio personal & Blog
+# carworks.dev
 
-Frontend de mi web personal como desarrollador fullstack e ingeniero telemático: portafolio, secciones "sobre mí" y blog técnico, con diseño moderno, animaciones y un sistema de tema dinámico.
+Frontend del sitio personal de Carlos Guillén: una presentación profesional con información sobre mí, proyectos, habilidades técnicas y artículos sobre desarrollo de software.
 
-> Este repositorio contiene **únicamente el frontend** (carpeta `client/`). El backend que sirve el blog es un servicio aparte que se consume por HTTP mediante la variable `VITE_API_URL`.
+Este repositorio contiene únicamente la aplicación cliente, ubicada en `client/`. El contenido dinámico de proyectos y blog lo proporciona un backend independiente mediante una API HTTP.
 
----
+## Funcionalidades
 
-## 🛠️ Stack
+- Página principal con presentación, información personal, stack tecnológico y datos de contacto.
+- Listado y detalle de proyectos.
+- Listado de artículos y páginas individuales del blog mediante slug.
+- Renderizado de artículos en Markdown, con soporte para GitHub Flavored Markdown, resaltado de sintaxis y diagramas Mermaid.
+- Tema visual dinámico con paletas de acento y favicon asociado.
+- Enrutado SPA con páginas de inicio, proyectos, blog, detalle de artículo y página no encontrada.
 
-- **React 19** + **Vite 7** (SPA, JavaScript + JSX, sin TypeScript)
-- **Tailwind CSS v4** vía el plugin `@tailwindcss/vite` (tokens de diseño definidos con `@theme` en CSS)
-- **React Router v7** para el enrutado del lado del cliente
-- **react-markdown** + **remark-gfm**, **react-syntax-highlighter** y **mermaid** para renderizar los posts del blog
-- **pnpm** como gestor de paquetes
+## Stack
 
-Despliegue: **GitHub Pages** (dominio personalizado `carworks.dev`).
+- React 19 y Vite 7.
+- JavaScript y JSX, sin TypeScript.
+- Tailwind CSS v4 mediante `@tailwindcss/vite`.
+- React Router v7.
+- `react-markdown`, `remark-gfm`, `react-syntax-highlighter` y Mermaid.
+- pnpm como gestor de paquetes.
 
----
+## Requisitos
 
-## 🚀 Desarrollo
+- Node.js 20 o superior.
+- pnpm 9 o superior.
+- Una instancia disponible del backend para cargar proyectos y artículos.
 
-Todos los comandos se ejecutan dentro de `client/`.
+## Desarrollo local
+
+Todos los comandos se ejecutan desde `client/`:
 
 ```bash
 cd client
-pnpm install      # instalar dependencias
-pnpm dev          # servidor de desarrollo (Vite)
-pnpm build        # build de producción (genera dist/ y copia index.html -> 404.html)
-pnpm lint         # ESLint
-pnpm preview      # previsualizar el build de producción
+pnpm install
+pnpm dev
+```
+
+Otros comandos disponibles:
+
+```bash
+pnpm build       # Genera dist/ y copia index.html como 404.html
+pnpm lint        # Ejecuta ESLint
+pnpm preview     # Previsualiza el build de producción
 ```
 
 ### Variables de entorno
 
-Copia `client/.env.example` a `client/.env` y define la URL del backend:
+Copia `client/.env.example` como `client/.env` y configura la URL base del backend:
 
 ```bash
-VITE_API_URL=https://tu-api.ejemplo
+VITE_API_URL=http://localhost:3000
 ```
 
----
+La aplicación utiliza esta variable para consultar:
 
-## 📂 Estructura del proyecto
+- `GET ${VITE_API_URL}/api/projects`
+- `GET ${VITE_API_URL}/api/blog/posts`
+- `GET ${VITE_API_URL}/api/blog/posts/:slug`
 
-El código sigue **Feature-Sliced Design (FSD)**. Cada capa solo puede importar de las capas inferiores:
+Las respuestas de proyectos y artículos se normalizan en sus respectivas entidades antes de llegar a los componentes. Las consultas se guardan en la caché local del navegador para evitar peticiones repetidas.
 
-```
+## Estructura del proyecto
+
+El código sigue una organización basada en Feature-Sliced Design. Las capas deben importar únicamente desde capas inferiores:
+
+```text
 app → processes → pages → widgets → features → entities → shared
 ```
 
-```bash
+```text
 client/
-├── public/                 # Estáticos (CNAME, favicon/symbol)
+├── public/                 # Archivos estáticos, como CNAME y favicon
 └── src/
-    ├── app/                # Raíz de composición: App, router, estilos globales y tema
-    ├── pages/              # Componentes de ruta: home, blog, post, not-found
-    ├── widgets/            # Bloques de UI compuestos (hero, footer, navbars, projects…)
-    ├── features/           # Funcionalidades (p. ej. theme-switch)
-    ├── entities/           # Modelos de dominio + acceso a datos (entities/post)
-    └── shared/             # Primitivos reutilizables: ui/, lib/ (hooks, theme), data/, assets/
+    ├── app/                # Composición de la aplicación, router y estilos globales
+    ├── pages/              # Páginas asociadas a rutas
+    ├── widgets/            # Bloques de interfaz compuestos
+    ├── features/           # Funcionalidades aisladas, como el cambio de tema
+    ├── entities/           # Modelos y acceso a datos de proyectos y artículos
+    └── shared/             # UI, hooks, utilidades, datos y recursos reutilizables
 ```
 
-- **Alias de importación:** `@` apunta a `src/` (configurado en `vite.config.js` y `jsconfig.json`). Usa siempre `@/...`.
-- Cada *slice* expone su API pública con un barrel `index.js` y mantiene su componente en `ui.jsx`.
+El alias `@` apunta a `client/src/`. Se recomienda utilizarlo en los imports, por ejemplo:
 
-### Capa de datos del blog (`entities/post`)
+```js
+import { getPosts } from "@/entities/post"
+```
 
-`api/` obtiene los posts desde `${VITE_API_URL}/api/blog/posts` (y `/:slug`), y cada respuesta cruda se normaliza con la factoría `createPost` (`model/`). Los componentes consumen siempre esta forma normalizada, nunca el JSON crudo de la API.
+Las entidades exponen su API pública desde `index.js`. El acceso a la API se encuentra en `entities/project/api/` y `entities/post/api/`, mientras que la transformación de respuestas se realiza en sus respectivos directorios `model/`.
 
-### Sistema de tema dinámico
+## Despliegue
 
-En cada carga se elige una paleta de acento al azar (`shared/lib/theme/random-theme.js`), que fija la variable CSS `--accent-color`, evita repetir el último tema vía `sessionStorage` y emite un evento `theme-changed`. El favicon se actualiza según el color elegido.
+El workflow `.github/workflows/deploy.yml` construye el frontend y lo publica en GitHub Pages cada vez que hay un push a `main`.
 
----
+Durante el build de GitHub Actions, `VITE_API_URL` se obtiene del secret con el mismo nombre. Para que el despliegue funcione, configura ese secret con la URL pública del backend.
 
-## 📦 Despliegue
-
-El workflow `.github/workflows/deploy.yml` construye `client/` y publica `dist/` en GitHub Pages en cada push a `main`. `VITE_API_URL` se inyecta desde los *secrets* del repositorio durante el build. Como el enrutado es del lado del cliente, el build duplica `index.html` como `404.html` para que los enlaces profundos (p. ej. `/blog/:slug`) resuelvan correctamente.
+El comando de build genera `client/dist/` y duplica `index.html` como `404.html`, lo que permite que GitHub Pages resuelva correctamente las rutas profundas de la SPA, como `/projects` o `/blog/un-articulo`.
